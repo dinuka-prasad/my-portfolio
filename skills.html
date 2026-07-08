@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Technical expertise and skills matrix of Dinuka Prasad. Flutter, Dart, Java, Node.js, Spring Boot, Databases, and DevOps.">
+    <title>Skills Matrix | Dinuka Prasad</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS Style File -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Skills Page JS Trigger Indicator -->
+    <span id="skills-page-indicator" style="display: none;"></span>
+
+    <!-- Glowing Background Blobs -->
+    <div class="glow-blob blob-1"></div>
+    <div class="glow-blob blob-2"></div>
+    <div class="glow-blob blob-3"></div>
+
+    <!-- Navigation Header -->
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-accent">&lt;</span>dinuka<span class="logo-accent">.dev /&gt;</span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="skills.html" class="nav-link">Skills</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="experience.html" class="nav-link">Experience</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <a href="skills.html" class="mobile-link">Skills</a>
+        <a href="projects.html" class="mobile-link">Projects</a>
+        <a href="experience.html" class="mobile-link">Experience</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section scroll-reveal">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">My Expertise</span>
+                    <h2 class="section-title">Technical Skills Matrix</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="skills-grid">
+                    <!-- Mobile Development -->
+                    <div class="skills-card">
+                        <div class="skills-card-header">
+                            <i data-lucide="smartphone" class="card-icon cyan"></i>
+                            <h3>Mobile App Development</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li><span>Flutter</span><span class="percentage">95%</span></li>
+                            <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+                            
+                            <li><span>Dart</span><span class="percentage">90%</span></li>
+                            <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                            
+                            <li><span>Android SDK (Java)</span><span class="percentage">75%</span></li>
+                            <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+
+                            <li><span>iOS Development (Swift)</span><span class="percentage">70%</span></li>
+                            <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
+                        </ul>
+                    </div>
+
+                    <!-- Backend & DB -->
+                    <div class="skills-card">
+                        <div class="skills-card-header">
+                            <i data-lucide="database" class="card-icon purple"></i>
+                            <h3>Backend & Databases</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li><span>REST APIs / JSON</span><span class="percentage">85%</span></li>
+                            <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+                            
+                            <li><span>Spring Boot (Java)</span><span class="percentage">80%</span></li>
+                            <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+                            
+                            <li><span>Node.js / Express</span><span class="percentage">75%</span></li>
+                            <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+
+                            <li><span>PostgreSQL / MySQL / Firebase</span><span class="percentage">80%</span></li>
+                            <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+                        </ul>
+                    </div>
+
+                    <!-- DevOps & Tools -->
+                    <div class="skills-card">
+                        <div class="skills-card-header">
+                            <i data-lucide="settings" class="card-icon pink"></i>
+                            <h3>DevOps, Cloud & Tools</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li><span>Git & Version Control</span><span class="percentage">90%</span></li>
+                            <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                            
+                            <li><span>Docker & Containerization</span><span class="percentage">75%</span></li>
+                            <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+                            
+                            <li><span>CI/CD Pipelines</span><span class="percentage">70%</span></li>
+                            <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
+
+                            <li><span>AWS (S3, EC2)</span><span class="percentage">65%</span></li>
+                            <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 Dinuka Prasad. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/dinuka-prasad" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
+                <a href="https://www.linkedin.com/in/dinuka-prasad-/" target="_blank" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS File -->
+    <script src="script.js"></script>
+</body>
+</html>
