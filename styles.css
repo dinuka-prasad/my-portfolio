@@ -51,8 +51,22 @@ body.light-theme {
     --text-muted: #475569;
     --text-dark: #94a3b8;
     --grad-card: linear-gradient(135deg, rgba(15, 23, 42, 0.02) 0%, rgba(15, 23, 42, 0.01) 100%);
+    --bg-header: rgba(248, 250, 252, 0.8);
+    --bg-header-scrolled: rgba(248, 250, 252, 0.95);
+    --bg-mobile-nav: rgba(241, 245, 249, 0.98);
     background-color: var(--bg-primary);
     color: var(--text-main);
+}
+
+body.light-theme .text-glow {
+    color: var(--accent-purple);
+    text-shadow: 0 0 10px rgba(79, 70, 229, 0.15);
+}
+
+body.light-theme .floating-badge {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(15, 23, 42, 0.1);
+    color: #0f172a;
 }
 
 body.light-theme .feature-card,
@@ -206,7 +220,7 @@ header {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background: rgba(3, 7, 18, 0.7);
+    background: var(--bg-header, rgba(3, 7, 18, 0.7));
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-color);
@@ -216,7 +230,7 @@ header {
 
 header.scrolled {
     height: 70px;
-    background: rgba(3, 7, 18, 0.85);
+    background: var(--bg-header-scrolled, rgba(3, 7, 18, 0.85));
     box-shadow: var(--shadow-md);
 }
 
@@ -288,7 +302,7 @@ header.scrolled {
     top: var(--header-height);
     left: 0;
     width: 100%;
-    background: rgba(11, 15, 25, 0.98);
+    background: var(--bg-mobile-nav, rgba(11, 15, 25, 0.98));
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
     padding: 2rem;
