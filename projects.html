@@ -38,6 +38,7 @@
                 <a href="projects.html" class="nav-link">Projects</a>
                 <a href="experience.html" class="nav-link">Experience</a>
                 <a href="contact.html" class="nav-link">Contact</a>
+                <a href="resume.pdf" class="btn-cv-nav" target="_blank"><i data-lucide="download"></i><span>Resume</span></a>
             </nav>
 
             <div class="menu-toggle" id="mobile-menu-btn">
@@ -54,6 +55,7 @@
         <a href="projects.html" class="mobile-link">Projects</a>
         <a href="experience.html" class="mobile-link">Experience</a>
         <a href="contact.html" class="mobile-link">Contact</a>
+        <a href="resume.pdf" class="mobile-link" target="_blank"><i data-lucide="download" style="display:inline-block; vertical-align:middle; margin-right:5px; width:16px; height:16px;"></i><span>Resume (CV)</span></a>
     </div>
 
     <!-- Main Content -->
@@ -68,84 +70,257 @@
                 </div>
                 <div class="projects-grid">
                     <!-- Project 1: Travel AI Guide -->
-                    <div class="project-card featured-project">
-                        <div class="project-info">
-                            <div class="project-badge">Featured Project</div>
-                            <h3>Travel AI Guide App</h3>
-                            <p class="project-desc">
-                                A cutting-edge mobile travel planner built using <strong>Flutter and Dart</strong>. It integrates Google's <strong>Gemini AI API</strong> to provide smart, context-aware itineraries, location recommendations, and local travel tips. The app simplifies travel planning with an interactive UI, smooth state transitions, and responsive maps.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">Dart</span>
-                                <span class="tag">Gemini AI API</span>
-                                <span class="tag">Location APIs</span>
-                                <span class="tag">State Management</span>
+                    <div class="project-card featured-project" style="flex-direction: column; width: 100%;">
+                        <div style="display: flex; flex-direction: row; width: 100%;" class="project-split">
+                            <div class="project-info" style="flex: 1.2;">
+                                <div class="project-badge">Featured Case Study</div>
+                                <h3>Travel AI Guide App</h3>
+                                <div class="recruiter-evidence">
+                                    <p><strong>Problem Solved:</strong> Travel planning requires hours of manual itinerary research, coordinate mapping, and budget planning.</p>
+                                    <p><strong>Technologies:</strong> Flutter, Dart, Google Gemini AI API, Google Maps SDK, JSON REST APIs, Provider (State).</p>
+                                    <p><strong>My Contribution:</strong> Designed system prompting structures to enforce reliable JSON schema output from Gemini, implemented map overlay markers, and optimized local async storage for favorite routes.</p>
+                                    <p><strong>Outcome & Impact:</strong> Created a zero-latency dynamic multi-day trip planner, reducing travel planning time from hours to seconds for test users.</p>
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Flutter</span>
+                                    <span class="tag">Dart</span>
+                                    <span class="tag">Gemini AI API</span>
+                                    <span class="tag">Google Maps SDK</span>
+                                    <span class="tag">REST API</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/dinuka-prasad/TravelAiGuideApp" target="_blank" class="project-link">
+                                        <i data-lucide="github"></i><span>Source Code</span>
+                                    </a>
+                                    <button class="btn-details-toggle" data-target="deep-dive-travel">
+                                        <i data-lucide="chevron-down"></i><span>Technical Deep Dive</span>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="project-links">
-                                <a href="https://github.com/dinuka-prasad/TravelAiGuideApp" target="_blank" class="project-link">
-                                    <i data-lucide="github"></i><span>Source Code</span>
-                                </a>
+                            <div class="project-visual" style="flex: 0.8;">
+                                <div class="visual-placeholder">
+                                    <i data-lucide="map-pin" class="visual-icon"></i>
+                                    <span class="visual-text">Travel AI Guide App</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="project-visual">
-                            <div class="visual-placeholder">
-                                <i data-lucide="map-pin" class="visual-icon"></i>
-                                <span class="visual-text">Travel AI Guide App</span>
+                        
+                        <!-- Collapsible Deep Dive Panel 1 -->
+                        <div id="deep-dive-travel" class="project-deep-dive" style="width: 100%;">
+                            <div class="deep-dive-container">
+                                <div class="deep-dive-col">
+                                    <h4><i data-lucide="git-branch"></i>System Architecture</h4>
+                                    <p>Flowchart of dynamic itinerary request processing:</p>
+                                    <div class="deep-dive-code">
+[Flutter Presentation]
+          │
+          ▼ (User Prefs Query)
+[Provider Controllers]
+          │
+          ▼ (HTTP API Request)
+[Google Gemini Engine]
+          │
+          ▼ (Validates JSON Response)
+[Map Display & Storage]
+                                    </div>
+                                </div>
+                                <div class="deep-dive-col">
+                                    <h4><i data-lucide="database"></i>Database Schema</h4>
+                                    <p>Offline itinerary persistence schema in local SQLite database:</p>
+                                    <div class="deep-dive-code">
+TABLE saved_trips (
+  id VARCHAR(36) PRIMARY KEY,
+  destination_name VARCHAR(150),
+  days_count INTEGER,
+  itinerary_payload TEXT, -- JSON
+  created_at TIMESTAMP
+);
+                                    </div>
+                                </div>
+                                <div class="deep-dive-col">
+                                    <h4><i data-lucide="check-circle"></i>API & Testing Details</h4>
+                                    <p>Postman-verified API payloads and test calls:</p>
+                                    <div class="endpoints-list">
+                                        <div class="endpoint-item">
+                                            <span class="endpoint-method">POST</span>
+                                            <span class="endpoint-path">/v1/models/gemini-pro:generate</span>
+                                        </div>
+                                    </div>
+                                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Unit tests verify that JSON response parameters correctly map to latitude and longitude coordinates in Flutter models.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 2: Swaralaya Music App -->
-                    <div class="project-card">
-                        <div class="project-info">
-                            <h3>Swaralaya Music App</h3>
-                            <p class="project-desc">
-                                An elegant and interactive music application designed for Android and iOS using <strong>Flutter</strong>. Features include a custom music player interface, play/pause controls, local & online playlist management, and clean notification controls.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">Dart</span>
-                                <span class="tag">Audio Players</span>
-                                <span class="tag">State Management</span>
+                    <div class="project-card featured-project" style="flex-direction: column; width: 100%; margin-top: 3rem;">
+                        <div style="display: flex; flex-direction: row; width: 100%;" class="project-split">
+                            <div class="project-info" style="flex: 1.2;">
+                                <h3>Swaralaya Music App</h3>
+                                <div class="recruiter-evidence">
+                                    <p><strong>Problem Solved:</strong> Standard mobile media playing plugins cause audio stutter and freeze during background activity transitions.</p>
+                                    <p><strong>Technologies:</strong> Flutter, Dart, Audio players package, Native Android Services, Bloc pattern.</p>
+                                    <p><strong>My Contribution:</strong> Programmed background service lifecycle handlers, mapped native media session play/pause notifications, and built stream buffering queues.</p>
+                                    <p><strong>Outcome & Impact:</strong> Created a highly robust music player app that maintains uninterrupted playback during background browsing.</p>
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Flutter</span>
+                                    <span class="tag">Dart</span>
+                                    <span class="tag">Audio Buffering</span>
+                                    <span class="tag">Android Services</span>
+                                    <span class="tag">Bloc Pattern</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/dinuka-prasad/SwaralayaMusicApp" target="_blank" class="project-link">
+                                        <i data-lucide="github"></i><span>Source Code</span>
+                                    </a>
+                                    <button class="btn-details-toggle" data-target="deep-dive-swaralaya">
+                                        <i data-lucide="chevron-down"></i><span>Technical Deep Dive</span>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="project-links">
-                                <a href="https://github.com/dinuka-prasad/SwaralayaMusicApp" target="_blank" class="project-link">
-                                    <i data-lucide="github"></i><span>Source Code</span>
-                                </a>
+                            <div class="project-visual" style="flex: 0.8;">
+                                <div class="visual-placeholder audio-bg">
+                                    <i data-lucide="music" class="visual-icon"></i>
+                                    <span class="visual-text">Swaralaya Music App</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="project-visual">
-                            <div class="visual-placeholder audio-bg">
-                                <i data-lucide="music" class="visual-icon"></i>
-                                <span class="visual-text">Swaralaya Music App</span>
+                        
+                        <!-- Collapsible Deep Dive Panel 2 -->
+                        <div id="deep-dive-swaralaya" class="project-deep-dive" style="width: 100%;">
+                            <div class="deep-dive-container">
+                                <div class="deep-dive-col">
+                                    <h4><i data-lucide="git-branch"></i>System Architecture</h4>
+                                    <p>Audio playback state control handler flow:</p>
+                                    <div class="deep-dive-code">
+ [Flutter UI Layout]
+          │
+          ▼ (Play/Pause Event)
+ [Bloc Media State]
+          │
+          ▼ (Sync Media Session)
+ [Audio Service Wrapper]
+          │
+          ▼ (Foreground Channel)
+[Native OS Audio Engine]
+                                    </div>
+                                </div>
+                                <div class="deep-dive-col">
+                                    <h4><i data-lucide="database"></i>Database Schema</h4>
+                                    <p>Local user custom playlists and track storage metadata tables:</p>
+                                    <div class="deep-dive-code">
+TABLE playlists (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(100)
+);
+
+TABLE tracks (
+  id INTEGER PRIMARY KEY,
+  playlist_id INTEGER REFERENCES playlists,
+  title VARCHAR(200),
+  stream_url VARCHAR(255)
+);
+                                    </div>
+                                </div>
+                                <div class="deep-dive-col">
+                                    <h4><i data-lucide="check-circle"></i>API & Testing Details</h4>
+                                    <p>Testing parameters and audio API endpoints:</p>
+                                    <div class="endpoints-list">
+                                        <div class="endpoint-item">
+                                            <span class="endpoint-method">GET</span>
+                                            <span class="endpoint-path">/api/tracks/stream/{id}</span>
+                                        </div>
+                                    </div>
+                                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Verified audio streaming stability across poor network mock models using latency throttlers in Android emulators.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 3: Attendly App -->
-                    <div class="project-card">
-                        <div class="project-info">
-                            <h3>Attendly Mobile App</h3>
-                            <p class="project-desc">
-                                A student attendance tracking mobile application. It connects with a REST API backend to allow lecturers to mark attendance, view real-time statistics, and generate attendance reports in a few simple clicks.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Flutter</span>
-                                <span class="tag">REST API</span>
-                                <span class="tag">Dart</span>
-                                <span class="tag">PostgreSQL</span>
+                    <!-- Project 3: Attendly Mobile App -->
+                    <div class="project-card featured-project" style="flex-direction: column; width: 100%; margin-top: 3rem;">
+                        <div style="display: flex; flex-direction: row; width: 100%;" class="project-split">
+                            <div class="project-info" style="flex: 1.2;">
+                                <h3>Attendly Mobile App</h3>
+                                <div class="recruiter-evidence">
+                                    <p><strong>Problem Solved:</strong> Manual classroom attendance tracking is slow, insecure, and prone to administrative logging delay.</p>
+                                    <p><strong>Technologies:</strong> Flutter, Dart, REST API, Node.js / Express backend, PostgreSQL database.</p>
+                                    <p><strong>My Contribution:</strong> Formulated PostgreSQL SQL relational database schema models, developed API client controllers, and implemented lecturer authentication.</p>
+                                    <p><strong>Outcome & Impact:</strong> Automated student registry attendance loggers, providing real-time data panels for college lectures.</p>
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Flutter</span>
+                                    <span class="tag">Node.js</span>
+                                    <span class="tag">REST API</span>
+                                    <span class="tag">PostgreSQL</span>
+                                    <span class="tag">Security</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/dinuka-prasad" target="_blank" class="project-link">
+                                        <i data-lucide="github"></i><span>GitHub Profile</span>
+                                    </a>
+                                    <button class="btn-details-toggle" data-target="deep-dive-attendly">
+                                        <i data-lucide="chevron-down"></i><span>Technical Deep Dive</span>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="project-links">
-                                <a href="https://github.com/dinuka-prasad" target="_blank" class="project-link">
-                                    <i data-lucide="github"></i><span>GitHub Profile</span>
-                                </a>
+                            <div class="project-visual" style="flex: 0.8;">
+                                <div class="visual-placeholder attend-bg">
+                                    <i data-lucide="check-square" class="visual-icon"></i>
+                                    <span class="visual-text">Attendly Mobile App</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="project-visual">
-                            <div class="visual-placeholder attend-bg">
-                                <i data-lucide="check-square" class="visual-icon"></i>
-                                <span class="visual-text">Attendly Mobile App</span>
+                        
+                        <!-- Collapsible Deep Dive Panel 3 -->
+                        <div id="deep-dive-attendly" class="project-deep-dive" style="width: 100%;">
+                            <div class="deep-dive-container">
+                                <div class="deep-dive-col">
+                                    <h4><i data-lucide="git-branch"></i>System Architecture</h4>
+                                    <p>Attendance tracking client-server flow:</p>
+                                    <div class="deep-dive-code">
+ [Flutter Lecturer App]
+          │
+          ▼ (Submit Attendance)
+  [REST API Endpoint]
+          │
+          ▼ (Validate Token)
+ [Node.js Express Server]
+          │
+          ▼ (Insert Transaction)
+ [PostgreSQL Database]
+                                    </div>
+                                </div>
+                                <div class="deep-dive-col">
+                                    <h4><i data-lucide="database"></i>Database Schema</h4>
+                                    <p>Relational SQL tables for students and attendance entries:</p>
+                                    <div class="deep-dive-code">
+TABLE students (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100),
+  roll_number VARCHAR(20)
+);
+
+TABLE attendance_records (
+  id SERIAL PRIMARY KEY,
+  student_id INTEGER REFERENCES students,
+  status BOOLEAN,
+  date DATE DEFAULT CURRENT_DATE
+);
+                                    </div>
+                                </div>
+                                <div class="deep-dive-col">
+                                    <h4><i data-lucide="check-circle"></i>API & Testing Details</h4>
+                                    <p>API requests and Postman checks:</p>
+                                    <div class="endpoints-list">
+                                        <div class="endpoint-item">
+                                            <span class="endpoint-method">POST</span>
+                                            <span class="endpoint-path">/api/attendance/submit</span>
+                                        </div>
+                                    </div>
+                                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">API tested under high-concurrency requests using Postman collection runner to simulate entire classroom marking actions.</p>
+                                </div>
                             </div>
                         </div>
                     </div>

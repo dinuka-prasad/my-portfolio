@@ -188,4 +188,35 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 6000);
         });
     }
+
+    // --- Project Collapsible Deep Dives Toggle ---
+    const detailsButtons = document.querySelectorAll('.btn-details-toggle');
+    detailsButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-target');
+            const panel = document.getElementById(targetId);
+            
+            if (panel) {
+                const isOpen = panel.classList.contains('open');
+                
+                // Toggle classes
+                panel.classList.toggle('open');
+                button.classList.toggle('open');
+                
+                // Toggle max-height for CSS transition
+                if (!isOpen) {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                    
+                    // Rotate icon and change button text
+                    const span = button.querySelector('span');
+                    if (span) span.textContent = "Hide Technical Details";
+                } else {
+                    panel.style.maxHeight = "0px";
+                    
+                    const span = button.querySelector('span');
+                    if (span) span.textContent = "Technical Deep Dive";
+                }
+            }
+        });
+    });
 });
