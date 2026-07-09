@@ -41,6 +41,80 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* --- Light Theme Design Variables --- */
+body.light-theme {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
+    --bg-card: rgba(255, 255, 255, 0.7);
+    --border-color: rgba(15, 23, 42, 0.08);
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --text-dark: #94a3b8;
+    --grad-card: linear-gradient(135deg, rgba(15, 23, 42, 0.02) 0%, rgba(15, 23, 42, 0.01) 100%);
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+}
+
+body.light-theme .feature-card,
+body.light-theme .skills-card,
+body.light-theme .project-card,
+body.light-theme .timeline-content,
+body.light-theme .contact-form-container {
+    background: var(--bg-card);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+}
+
+body.light-theme .deep-dive-code {
+    background: #0f172a;
+    color: #38bdf8;
+}
+
+body.light-theme .logo {
+    color: #0f172a;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+body.light-theme .theme-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.theme-toggle-btn i {
+    width: 16px;
+    height: 16px;
+}
+
+/* Project Visual Image styling */
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.05);
+}
+
 /* --- Base Styles & Reset --- */
 * {
     margin: 0;

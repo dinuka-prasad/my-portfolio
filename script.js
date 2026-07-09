@@ -3,6 +3,12 @@
 const SUPABASE_URL = "https://tkqrzfwubqvtxhyfaryi.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_DfPPMbAeXJrJ0jXSeKJVhg_nvV19O5n";
 
+// --- EmailJS Configuration ---
+// Replace these with your actual credentials from your EmailJS Dashboard -> Account
+const EMAILJS_PUBLIC_KEY = "YOUR_EMAILJS_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = "YOUR_EMAILJS_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID = "YOUR_EMAILJS_TEMPLATE_ID";
+
 // Initialize Supabase Client
 let supabaseClient = null;
 try {
@@ -18,6 +24,72 @@ try {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Light/Dark Theme Controller ---
+    const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
+    const storedTheme = localStorage.getItem('theme');
+    
+    if (storedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        updateThemeIcons('light');
+    } else {
+        updateThemeIcons('dark');
+    }
+
+    themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.body.classList.toggle('light-theme');
+            const newTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcons(newTheme);
+        });
+    });
+
+    function updateThemeIcons(theme) {
+        themeToggleBtns.forEach(btn => {
+            const icon = btn.querySelector('i');
+            const span = btn.querySelector('span');
+            if (icon) {
+                if (theme === 'light') {
+                    icon.setAttribute('data-lucide', 'sun');
+                } else {
+                    icon.setAttribute('data-lucide', 'moon');
+                }
+            }
+            if (span) {
+                span.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
+            }
+        });
+        
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
+    }
+
+    // --- EmailJS Sender Helper ---
+    async function sendEmailJSNotification(name, email, message) {
+        if (typeof emailjs !== 'undefined' && 
+            EMAILJS_PUBLIC_KEY && 
+            EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY' &&
+            EMAILJS_SERVICE_ID && 
+            EMAILJS_TEMPLATE_ID) {
+            try {
+                emailjs.init(EMAILJS_PUBLIC_KEY);
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                    from_name: name,
+                    from_email: email,
+                    message: message,
+                    reply_to: email
+                });
+                console.log("EmailJS alert dispatched successfully.");
+            } catch (err) {
+                console.error("EmailJS dispatch failed:", err);
+            }
+        } else {
+            console.log("EmailJS is not configured. (Configure keys in script.js for real-time inbox alerts)");
+        }
+    }
 
     // Initialize Lucide Icons
     if (typeof lucide !== 'undefined') {
@@ -163,6 +235,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (error) throw error;
 
+                    // Trigger Email Alert
+                    await sendEmailJSNotification(name.trim(), email.trim(), message.trim());
+
                     formStatus.textContent = "Thank you! Your message has been sent and stored in the database.";
                     formStatus.classList.add('success');
                     contactForm.reset();
@@ -174,6 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // Simulation Mode fallback
                 console.warn("Supabase is not configured yet. Simulating PostgreSQL insertion.");
+                await sendEmailJSNotification(name.trim(), email.trim(), message.trim());
                 setTimeout(() => {
                     formStatus.textContent = "Simulation: Message sent successfully! (Setup your Supabase keys in script.js to connect to your PostgreSQL database).";
                     formStatus.classList.add('success');
